@@ -1,6 +1,6 @@
 import React from 'react'
 import { NextPage } from 'next'
 
-const HomePage: NextPage = () => <h2>Home</h2>
+const HomePage: NextPage = () => <h1>Home</h1>
 
 export default HomePage
