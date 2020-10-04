@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { BlogArticle } from 'types/blog'
-import { useDate } from 'hooks/useDate'
+import { useFormatDate } from 'hooks/useFormatDate'
 import { Tags } from 'components/Tags'
 
 type BlogListItemData = Pick<BlogArticle, 'publishedAt' | 'tags' | 'title'>
@@ -13,7 +13,7 @@ type Props = {
 }
 
 const BlogListItemComponent: React.FC<Props> = ({ className, content }) => {
-  const { formattedDate } = useDate(content.publishedAt, 'YYYY-MM-DD')
+  const { formattedDate } = useFormatDate(content.publishedAt, 'YYYY-MM-DD')
 
   return (
     <article className={className}>

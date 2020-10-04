@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 
-export const useDate = (
+export const useFormatDate = (
   date: string,
   dateOrder: string
 ): { formattedDate: string } => {
