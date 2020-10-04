@@ -1,19 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Tags } from 'components/Tags'
+import { BlogArticle } from 'types/blog'
 import { useDate } from 'hooks/useDate'
+import { Tags } from 'components/Tags'
+
+type BlogListItemData = Pick<BlogArticle, 'publishedAt' | 'tags' | 'title'>
 
 type Props = {
   className?: string
-  content: {
-    content: string
-    createdAt: string
-    id: string
-    publishedAt: string
-    tags: Array<{ id: string; tags: string }>
-    title: string
-  }
+  content: BlogListItemData
 }
 
 const BlogListItemComponent: React.FC<Props> = ({ className, content }) => {

@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { BlogArticle } from 'types/blog'
+
 type Props = {
   className?: string
-  tags: Array<{ id: string; tags: string }>
-}
+} & Pick<BlogArticle, 'tags'>
 
 const TagsComponent: React.FC<Props> = ({ className, tags }) => (
   <ul className={className}>

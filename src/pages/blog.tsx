@@ -1,18 +1,11 @@
 import React from 'react'
 import { NextPage, GetStaticProps } from 'next'
 
+import { BlogArticle } from 'types/blog'
 import { BlogListItem } from 'components/BlogListItem'
 
 type Props = {
-  contents: Array<{
-    content: string
-    createdAt: string
-    id: string
-    publishedAt: string
-    tags: Array<{ id: string; tags: string }>
-    title: string
-    updatedAt: string
-  }>
+  contents: Array<BlogArticle>
 }
 
 const BlogIndexPage: NextPage<Props> = ({ contents }) => (
