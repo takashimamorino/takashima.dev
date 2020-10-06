@@ -5,6 +5,11 @@
     "start": "next start",
     "lint": "eslint . --ext .js,.ts,.tsx --cache"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
   "dependencies": {
     "dayjs": "^1.9.1",
     "next": "^9.5.3",
@@ -22,6 +27,7 @@
     "babel-plugin-styled-components": "^1.11.1",
     "eslint": "^7.10.0",
     "eslint-plugin-react": "^7.21.3",
+    "husky": "^4.3.0",
     "prettier": "^2.1.2",
     "typescript": "^4.0.3"
   }
