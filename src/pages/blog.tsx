@@ -1,4 +1,3 @@
-import React from 'react'
 import { NextPage, GetStaticProps } from 'next'
 
 import { BlogArticle } from 'types/blog'
