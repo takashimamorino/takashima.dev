@@ -13,7 +13,7 @@ const FooterComponent: React.FC<Props> = ({ className }) => (
 )
 
 export const Footer = styled(FooterComponent)`
-  margin: auto auto 40px;
+  margin: auto auto 20px;
 
   > p {
     font-size: 10px;
