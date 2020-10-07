@@ -16,12 +16,11 @@ const BlogIndexPage: NextPage<Props> = ({ contents }) => (
 )
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${process.env.ENDPOINT}/blog`, {
+  const res = await fetch(`${process.env.ENDPOINT}/blog/`, {
     headers: {
       'X-API-KEY': process.env.API_KEY || '',
     },
   })
-
   const { contents } = await res.json()
 
   return { props: { contents } }

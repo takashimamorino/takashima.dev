@@ -1,10 +1,14 @@
+import Link from 'next/link'
 import styled from 'styled-components'
 
 import { BlogArticle } from 'types/blog'
 import { useFormatDate } from 'hooks/useFormatDate'
 import { Tags } from 'components/Tags'
 
-type BlogListItemData = Pick<BlogArticle, 'publishedAt' | 'tags' | 'title'>
+type BlogListItemData = Pick<
+  BlogArticle,
+  'id' | 'publishedAt' | 'tags' | 'title'
+>
 
 type Props = {
   className?: string
@@ -20,7 +24,9 @@ const BlogListItemComponent: React.FC<Props> = ({ className, content }) => {
         <p>{formattedDate}</p>
         <Tags tags={content.tags} />
       </div>
-      <a>{content.title}</a>
+      <Link href={`blog/${content.id}`}>
+        <a>{content.title}</a>
+      </Link>
     </article>
   )
 }
