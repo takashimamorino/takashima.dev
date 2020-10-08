@@ -24,7 +24,7 @@ export const BlogComponent: React.FC<Props> = ({
         <h1>{title}</h1>
         <p>{formattedDate}</p>
       </section>
-      <ReactMarkdown source={content} />
+      <ReactMarkdown source={content} linkTarget="_blank" />
     </article>
   )
 }
