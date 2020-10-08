@@ -3,6 +3,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next build && next export",
     "lint": "eslint . --ext .js,.ts,.tsx --cache"
   },
   "husky": {
