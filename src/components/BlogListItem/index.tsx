@@ -44,6 +44,6 @@ export const BlogListItem = styled(BlogListItemComponent)`
   }
 
   & > a {
-    font-size: 16px;
+    font-size: 18px;
   }
 `
