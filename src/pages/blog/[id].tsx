@@ -1,6 +1,7 @@
 import { NextPage, GetStaticPaths } from 'next'
 
 import { BlogArticle } from 'types/blog'
+import { Blog } from 'components/Blog'
 
 type Props = {
   post: BlogArticle
@@ -12,7 +13,9 @@ type Params = {
   }
 }
 
-const Blog: NextPage<Props> = ({ post }) => <h2>{post.title}</h2>
+const BlogPage: NextPage<Props> = ({ post }) => (
+  <Blog title={post.title} date={post.publishedAt} content={post.content} />
+)
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch(`${process.env.ENDPOINT}/blog/`, {
@@ -39,4 +42,4 @@ export const getStaticProps = async ({ params }: Params) => {
   return { props: { post } }
 }
 
-export default Blog
+export default BlogPage
