@@ -22,7 +22,7 @@ export const Layout = styled(LayoutComponent)`
   min-height: 100vh;
 
   & > main {
-    max-width: 980px;
+    max-width: 720px;
     width: 100%;
     margin: 20px auto 100px;
     padding: 0 24px;

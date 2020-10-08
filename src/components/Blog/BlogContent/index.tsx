@@ -56,7 +56,7 @@ export const BlogContent = styled(BlogContentComponent)`
     p,
     ul,
     ol {
-      margin-bottom: 25px;
+      margin-bottom: 30px;
     }
 
     ul,
