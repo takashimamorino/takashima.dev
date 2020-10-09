@@ -24,7 +24,7 @@ export const Layout = styled(LayoutComponent)`
   & > main {
     max-width: 720px;
     width: 100%;
-    margin: 20px auto 100px;
+    margin: 0 auto 100px;
     padding: 0 24px;
   }
 `

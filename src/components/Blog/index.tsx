@@ -30,6 +30,8 @@ export const BlogComponent: React.FC<Props> = ({
 }
 
 export const Blog = styled(BlogComponent)`
+  margin-top: 20px;
+
   & > section {
     margin-bottom: 30px;
   }

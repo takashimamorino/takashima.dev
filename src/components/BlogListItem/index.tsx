@@ -33,7 +33,7 @@ const BlogListItemComponent: React.FC<Props> = ({ className, content }) => {
 
 export const BlogListItem = styled(BlogListItemComponent)`
   max-width: 640px;
-  margin: 0 auto 20px;
+  margin: 20px auto 0px;
 
   & > div {
     display: flex;
