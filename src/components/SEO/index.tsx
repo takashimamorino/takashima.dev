@@ -9,6 +9,7 @@ export const SEO: React.FC<Props> = ({ title }) => (
     <title>{title ? `${title} | takashima.dev` : 'takashima.dev'}</title>
     <meta property="og:site_name" content="takashima.dev" />
     <meta property="og:title" content={`takashima.dev | ${title}`} />
+    <meta property="description" content="ぴよぴよ" />
     <meta property="og:description" content="ぴよぴよ" />
     <meta
       property="og:image"
