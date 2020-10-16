@@ -1,6 +1,7 @@
 import { NextPage, GetStaticProps } from 'next'
 
 import { SNSLink } from 'types/snsLink'
+import { SEO } from 'components/SEO'
 import { LinkList } from 'components/LinkList'
 
 type Props = {
@@ -8,7 +9,10 @@ type Props = {
 }
 
 const LinkPage: NextPage<Props> = ({ contents }) => (
-  <LinkList contents={contents} />
+  <>
+    <SEO title="Link" />
+    <LinkList contents={contents} />
+  </>
 )
 
 export const getStaticProps: GetStaticProps = async () => {

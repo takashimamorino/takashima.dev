@@ -1,6 +1,7 @@
 import { NextPage, GetStaticProps } from 'next'
 
 import { BlogArticle } from 'types/blog'
+import { SEO } from 'components/SEO'
 import { BlogListItem } from 'components/BlogListItem'
 
 type Props = {
@@ -9,6 +10,7 @@ type Props = {
 
 const BlogIndexPage: NextPage<Props> = ({ contents }) => (
   <>
+    <SEO title="Blog" />
     {contents.map((content) => (
       <BlogListItem key={content.id} content={content} />
     ))}

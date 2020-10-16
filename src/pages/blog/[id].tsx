@@ -1,6 +1,7 @@
 import { NextPage, GetStaticPaths } from 'next'
 
 import { BlogArticle } from 'types/blog'
+import { SEO } from 'components/SEO'
 import { Blog } from 'components/Blog'
 
 type Props = {
@@ -14,7 +15,10 @@ type Params = {
 }
 
 const BlogPage: NextPage<Props> = ({ post }) => (
-  <Blog title={post.title} date={post.publishedAt} content={post.content} />
+  <>
+    <SEO title={post.title} />
+    <Blog title={post.title} date={post.publishedAt} content={post.content} />
+  </>
 )
 
 export const getStaticPaths: GetStaticPaths = async () => {
