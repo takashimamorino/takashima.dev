@@ -12,7 +12,6 @@ Jamstack project
 
 | Topic | Decision |
 | :---: | :---: |
-| Language | TypeScript |
 | Virtual DOM | React |
 | SSG | Next.js |
 | headless CMS | microCMS |
