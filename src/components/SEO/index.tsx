@@ -7,9 +7,9 @@ type Props = {
 export const SEO: React.FC<Props> = ({ title }) => (
   <Head>
     <title>{title ? `${title} | takashima.dev` : 'takashima.dev'}</title>
+    <meta name="description" content="ぴよぴよ" />
     <meta property="og:site_name" content="takashima.dev" />
     <meta property="og:title" content={`takashima.dev | ${title}`} />
-    <meta property="description" content="ぴよぴよ" />
     <meta property="og:description" content="ぴよぴよ" />
     <meta
       property="og:image"
