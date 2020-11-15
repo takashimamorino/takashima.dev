@@ -45,5 +45,9 @@ export const BlogListItem = styled(BlogListItemComponent)`
 
   & > a {
     font-size: 18px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 `
