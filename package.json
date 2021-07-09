@@ -28,7 +28,7 @@
     "@types/styled-components": "5.1.11",
     "@typescript-eslint/eslint-plugin": "4.28.2",
     "@typescript-eslint/parser": "4.28.2",
-    "babel-plugin-styled-components": "1.13.1",
+    "babel-plugin-styled-components": "1.13.2",
     "eslint": "7.30.0",
     "eslint-plugin-react": "7.24.0",
     "husky": "7.0.1",
