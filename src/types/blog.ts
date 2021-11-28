@@ -3,4 +3,5 @@ export type Blog = {
   title: string;
   published: string;
   tags: string[];
+  html: string;
 };

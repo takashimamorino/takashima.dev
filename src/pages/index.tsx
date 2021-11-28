@@ -1,4 +1,5 @@
-import type { NextPage } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
+import Link from 'next/link';
 import { GitHubIcon } from 'icons/GitHub';
 import { TwitterIcon } from 'icons/Twitter';
 import { getBlogs } from 'utils/blog';
@@ -58,7 +59,9 @@ const Home: NextPage<Props> = ({ blogs }) => {
                       ))}
                     </ul>
                   </div>
-                  <a className="text-xl">{blog.title}</a>
+                  <Link href={`/blog/${blog.slug}`}>
+                    <a className="text-xl">{blog.title}</a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -86,11 +89,14 @@ const Home: NextPage<Props> = ({ blogs }) => {
 
 export default Home;
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const blogs = await getBlogs();
+  const ascArray = blogs.sort((prev, next) => {
+    return new Date(prev.published) > new Date(next.published) ? -1 : 1;
+  });
 
   return {
-    props: { blogs },
+    props: { blogs: ascArray },
   };
 };
 
