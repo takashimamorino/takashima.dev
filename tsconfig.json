@@ -16,7 +16,10 @@
     "jsx": "preserve",
     "baseUrl": "./src",
     "paths": {
-      "icons": ["icons/*"]
+      "icons": ["icons/*"],
+      "utils": ["utils/*"],
+      "types": ["types/*"],
+      "components": ["components/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

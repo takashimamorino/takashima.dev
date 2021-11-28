@@ -1,9 +1,15 @@
 import type { NextPage } from 'next';
-import type { ReactNode, VFC } from 'react';
 import { GitHubIcon } from 'icons/GitHub';
 import { TwitterIcon } from 'icons/Twitter';
+import { getBlogs } from 'utils/blog';
+import { Blog } from 'types/blog';
+import { PageLayout } from 'components/PageLayout';
 
-const Home: NextPage = () => {
+type Props = {
+  blogs: Blog[];
+};
+
+const Home: NextPage<Props> = ({ blogs }) => {
   return (
     <PageLayout>
       <main className="mt-6">
@@ -80,28 +86,13 @@ const Home: NextPage = () => {
 
 export default Home;
 
-type Props = {
-  children: ReactNode;
-};
+export const getStaticProps = async () => {
+  const blogs = await getBlogs();
 
-const PageLayout: VFC<Props> = ({ children }) => {
-  return <div className="container max-w-2xl mx-auto px-4">{children}</div>;
+  return {
+    props: { blogs },
+  };
 };
-
-const blogs = [
-  {
-    title: 'foo',
-    published: '2021-11-28',
-    slug: 'foo',
-    tags: ['foo', 'bar'],
-  },
-  {
-    title: 'bar',
-    published: '2021-11-29',
-    slug: 'bar',
-    tags: ['bar'],
-  },
-];
 
 const monthlyReports = [
   {
@@ -112,6 +103,6 @@ const monthlyReports = [
   {
     title: '2021 年 12 月',
     published: '2021-11-28',
-    slug: 'foo',
+    slug: 'bar',
   },
 ];
