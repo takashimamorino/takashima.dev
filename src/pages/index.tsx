@@ -31,10 +31,15 @@ const Home: NextPage<Props> = ({ blogs }) => {
             <h3 className="text-xl font-medium tracking-wide">高島 克彦</h3>
             <h3 className="text-sm font-light tracking-wide">Takashima Katsuhiko</h3>
             <div className="flex justify-center gap-3 mt-2">
-              <NextImage src={SPOUTING_WHALE_ICON_URL} width={20} height={20} />
-              <NextImage src={GHOST_ICON_URL} width={20} height={20} />
-              <NextImage src={HATCHING_CHICK_ICON_URL} width={20} height={20} />
-              <NextImage src={ROCKET_ICON_URL} width={20} height={20} />
+              <NextImage src={SPOUTING_WHALE_ICON_URL} alt="emoji whale" width={20} height={20} />
+              <NextImage src={GHOST_ICON_URL} alt="emoji ghost" width={20} height={20} />
+              <NextImage
+                src={HATCHING_CHICK_ICON_URL}
+                alt="emoji hatching chick"
+                width={20}
+                height={20}
+              />
+              <NextImage src={ROCKET_ICON_URL} alt="emoji rocket" width={20} height={20} />
             </div>
           </section>
           <article className="mt-6">

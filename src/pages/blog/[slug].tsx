@@ -39,7 +39,7 @@ const Blog: NextPage<Props> = ({ blog }) => {
             <Link href="/">
               <a className="text-base">
                 <div className="flex gap-1">
-                  <NextImage src={HOME_ICON_URL} width={24} height={24} />
+                  <NextImage src={HOME_ICON_URL} width={24} height={24} alt="ホームへ" />
                   ホームへ
                 </div>
               </a>
