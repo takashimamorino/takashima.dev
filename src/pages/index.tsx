@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { GitHubIcon } from 'icons/GitHub';
 import { TwitterIcon } from 'icons/Twitter';
 import { getBlogs } from 'utils/blog';
-import { Blog } from 'types/blog';
+import type { Blog } from 'types/blog';
 import { PageLayout } from 'components/PageLayout';
 
 type Props = {
@@ -66,21 +66,6 @@ const Home: NextPage<Props> = ({ blogs }) => {
               ))}
             </ul>
           </section>
-          <section className="mt-4">
-            <h2 className="text-lg font-medium tracking-wide border-b-4 border-black w-max">
-              月報
-            </h2>
-            <ul className="mt-3 grid gap-2">
-              {monthlyReports.map((report) => (
-                <li key={report.slug}>
-                  <div className="flex">
-                    <p className="text-sm">{report.published}</p>
-                  </div>
-                  <a className="text-xl">{report.title}</a>
-                </li>
-              ))}
-            </ul>
-          </section>
         </article>
       </main>
     </PageLayout>
@@ -99,16 +84,3 @@ export const getStaticProps: GetStaticProps = async () => {
     props: { blogs: ascArray },
   };
 };
-
-const monthlyReports = [
-  {
-    title: '2021 年 11 月',
-    published: '2021-11-28',
-    slug: 'foo',
-  },
-  {
-    title: '2021 年 12 月',
-    published: '2021-11-28',
-    slug: 'bar',
-  },
-];

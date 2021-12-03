@@ -1,4 +1,5 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
+import Link from 'next/link';
 import type { Blog } from 'types/blog';
 import { getBlog, getBlogs } from 'utils/blog';
 import { PageLayout } from 'components/PageLayout';
@@ -15,10 +16,22 @@ type Params = {
 const Blog: NextPage<Props> = ({ blog }) => {
   return (
     <PageLayout>
-      <main className="mt-6">
-        <h1 className="text-xl font-semibold">{blog.title}</h1>
-        <p className="text-sm">{blog.published}</p>
-        <div className="mt-6 mb-16">
+      <main className="mt-3">
+        <h1 className="text-3xl font-semibold">{blog.title}</h1>
+        <div className="flex">
+          <p className="text-sm">{blog.published}</p>
+          <ul className="flex ml-2 gap-1">
+            {blog.tags.map((tag) => (
+              <li key={tag}>
+                <p className="text-sm">#{tag}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <Link href="/">
+          <a className="text-xs">ホームへ</a>
+        </Link>
+        <div className="mt-4 mb-16">
           <div className="znc" dangerouslySetInnerHTML={{ __html: blog.html }} />
         </div>
       </main>
