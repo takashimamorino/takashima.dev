@@ -8,7 +8,7 @@ type Props = {
 
 export const SEO: VFC<Props> = ({ title, type }) => (
   <Head>
-    <title>takashima.dev</title>
+    <title>{title ? `${title} | takashima.dev` : 'takashima.dev'}</title>
     <meta name="description" content="ぴよぴよ" />
     <meta property="og:site_name" content="takashima.dev" />
     <meta property="og:title" content={title ?? 'takashima.dev'} />
