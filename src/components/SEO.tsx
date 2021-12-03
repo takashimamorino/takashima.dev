@@ -9,8 +9,10 @@ type Props = {
 export const SEO: VFC<Props> = ({ title, type }) => (
   <Head>
     <title>takashima.dev</title>
+    <meta name="description" content="ぴよぴよ" />
     <meta property="og:site_name" content="takashima.dev" />
     <meta property="og:title" content={title ?? 'takashima.dev'} />
+    <meta property="og:description" content="ぴよぴよ" />
     <meta
       property="og:image"
       content="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/hatching-chick_1f423.png"
