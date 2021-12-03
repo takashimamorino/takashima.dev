@@ -1,11 +1,21 @@
 import type { NextPage, GetStaticProps } from 'next';
 import Link from 'next/link';
+import NextImage from 'next/image';
 import { GitHubIcon } from 'icons/GitHub';
 import { TwitterIcon } from 'icons/Twitter';
 import { getBlogs } from 'utils/blog';
 import type { Blog } from 'types/blog';
 import { PageLayout } from 'components/PageLayout';
 import { SEO } from 'components/SEO';
+
+const SPOUTING_WHALE_ICON_URL =
+  'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/282/spouting-whale_1f433.png';
+const GHOST_ICON_URL =
+  'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/282/ghost_1f47b.png';
+const HATCHING_CHICK_ICON_URL =
+  'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/282/hatching-chick_1f423.png';
+const ROCKET_ICON_URL =
+  'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/282/rocket_1f680.png';
 
 type Props = {
   blogs: Blog[];
@@ -18,8 +28,14 @@ const Home: NextPage<Props> = ({ blogs }) => {
       <PageLayout>
         <main className="mt-6">
           <section className="text-center">
-            <h3 className="text-xl font-normal tracking-wide">高島 克彦</h3>
+            <h3 className="text-xl font-medium tracking-wide">高島 克彦</h3>
             <h3 className="text-sm font-light tracking-wide">Takashima Katsuhiko</h3>
+            <div className="flex justify-center gap-3 mt-2">
+              <NextImage src={SPOUTING_WHALE_ICON_URL} width={20} height={20} />
+              <NextImage src={GHOST_ICON_URL} width={20} height={20} />
+              <NextImage src={HATCHING_CHICK_ICON_URL} width={20} height={20} />
+              <NextImage src={ROCKET_ICON_URL} width={20} height={20} />
+            </div>
           </section>
           <article className="mt-6">
             <section>
