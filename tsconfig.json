@@ -19,7 +19,8 @@
       "icons": ["icons/*"],
       "utils": ["utils/*"],
       "types": ["types/*"],
-      "components": ["components/*"]
+      "components": ["components/*"],
+      "constants": ["constants/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
