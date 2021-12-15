@@ -7,6 +7,7 @@ import { getBlogs } from 'utils/blog';
 import type { Blog } from 'types/blog';
 import { PageLayout } from 'components/PageLayout';
 import { SEO } from 'components/SEO';
+import { generateFeedXml } from 'utils/blog';
 
 const SPOUTING_WHALE_ICON_URL =
   'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/282/spouting-whale_1f433.png';
@@ -102,6 +103,9 @@ const Home: NextPage<Props> = ({ blogs }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
+  // NOTE: RSS feed is generated on the server side.
+  await generateFeedXml();
+
   const blogs = await getBlogs();
   const ascArray = blogs.sort((prev, next) => {
     return new Date(prev.published) > new Date(next.published) ? -1 : 1;
