@@ -66,7 +66,7 @@ export const generateFeedXml = async () => {
   blogs.forEach((blog) => {
     feed.item({
       title: blog.title,
-      description: blog.html,
+      description: blog.title,
       date: new Date(blog.published),
       url: `https://takashima.dev/blog/${blog.slug}`,
     });
