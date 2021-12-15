@@ -3,6 +3,7 @@ import fs from 'fs/promises';
 import parseFrontMatter from 'front-matter';
 import invariant from 'tiny-invariant';
 import { marked } from 'marked';
+import RSS from 'rss';
 import type { Blog } from 'types/blog';
 
 type BlogMarkdownAttributes = {
@@ -50,4 +51,26 @@ export const getBlog = async (slug: string): Promise<Blog> => {
   const html = marked(body);
 
   return { slug, title: attributes.title, published: formatted, tags: attributes.tags, html };
+};
+
+export const generateFeedXml = async () => {
+  const feed = new RSS({
+    title: 'title',
+    description: 'description',
+    site_url: 'site url',
+    feed_url: 'feed url',
+    language: 'ja',
+  });
+
+  const blogs = await getBlogs();
+  blogs.forEach((blog) => {
+    feed.item({
+      title: blog.title,
+      description: blog.html,
+      date: new Date(blog.published),
+      url: `https://takashima.dev/blog/${blog.slug}`,
+    });
+  });
+
+  return feed.xml();
 };
