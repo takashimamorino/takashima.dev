@@ -55,10 +55,10 @@ export const getBlog = async (slug: string): Promise<Blog> => {
 
 export const generateFeedXml = async () => {
   const feed = new RSS({
-    title: 'title',
-    description: 'description',
-    site_url: 'site url',
-    feed_url: 'feed url',
+    title: 'takashima.dev',
+    description: 'piyopiyo',
+    site_url: 'https://takashima.dev',
+    feed_url: 'https://www.takashima.dev/blog/feed',
     language: 'ja',
   });
 
