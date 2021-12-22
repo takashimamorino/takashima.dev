@@ -1,6 +1,6 @@
 ---
-title: test
-published: 2021-12-03
+title: foo
+published: 2021-12-22
 tags:
   - foo
   - bar
