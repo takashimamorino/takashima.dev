@@ -2,9 +2,9 @@ import path from 'path';
 import fs from 'fs';
 import parseFrontMatter from 'front-matter';
 import invariant from 'tiny-invariant';
-import { marked } from 'marked';
 import { type Blog } from 'types/blog';
 import { Feed } from 'feed';
+import markdownToHtml from 'zenn-markdown-html';
 
 type BlogMarkdownAttributes = {
   title: string;
@@ -28,7 +28,7 @@ export const getBlogs = async (): Promise<Blog[]> => {
       invariant(isValidBlogAttributes(attributes), `${filename} has bad meta data!`);
       const d = new Date(`${attributes.published}`);
       const formatted = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
-      const html = marked(body);
+      const html = markdownToHtml(body);
 
       return {
         slug: filename.replace(/\.md$/, ''),
@@ -48,7 +48,7 @@ export const getBlog = async (slug: string): Promise<Blog> => {
   invariant(isValidBlogAttributes(attributes), `Post ${filepath} is missing attributes`);
   const d = new Date(`${attributes.published}`);
   const formatted = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
-  const html = marked(body);
+  const html = markdownToHtml(body);
 
   return { slug, title: attributes.title, published: formatted, tags: attributes.tags, html };
 };
