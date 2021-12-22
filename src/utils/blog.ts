@@ -53,30 +53,31 @@ export const getBlog = async (slug: string): Promise<Blog> => {
   return { slug, title: attributes.title, published: formatted, tags: attributes.tags, html };
 };
 
+const BASE_URL = 'https://takashima.dev';
+
 export const generateFeedXml = async () => {
-  const baseUrl = 'https://takashima.dev';
   const date = new Date();
 
   const author = {
-    name: 'sample',
-    email: 'sample@sample.com',
-    link: 'https://...com',
+    name: 'takashima',
+    email: 'does1026@gmail.com',
+    link: BASE_URL,
   };
 
-  // デフォルトになる feed の情報
   const feed = new Feed({
-    title: process.env.NEXT_PUBLIC_BASE_NAME || '',
-    description: process.env.NEXT_PUBLIC_BASE_DISC,
-    id: baseUrl,
-    link: baseUrl,
+    title: BASE_URL,
+    description: BASE_URL,
+    id: BASE_URL,
+    link: BASE_URL,
     language: 'ja',
-    image: `${baseUrl}/favicon.png`, // image には OGP 画像でなくファビコンを指定
+    image:
+      'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/hatching-chick_1f423.png',
     copyright: `All rights reserved ${date.getFullYear()}, ${author.name}`,
     updated: date,
     feedLinks: {
-      rss2: `${baseUrl}/rss/feed.xml`,
-      json: `${baseUrl}/rss/feed.json`,
-      atom: `${baseUrl}/rss/atom.xml`,
+      rss2: `${BASE_URL}/rss/feed.xml`,
+      json: `${BASE_URL}/rss/feed.json`,
+      atom: `${BASE_URL}/rss/atom.xml`,
     },
     author: author,
   });
@@ -87,13 +88,12 @@ export const generateFeedXml = async () => {
     feed.addItem({
       title: blog.title,
       id: blog.slug,
-      link: `https://takashima.dev/blog/${blog.slug}`,
+      link: `${BASE_URL}/blog/${blog.slug}`,
       content: blog.html,
       date: new Date(blog.published),
     });
   });
 
-  // フィード情報を public/rss 配下にディレクトリを作って保存
   fs.mkdirSync('./public/rss', { recursive: true });
   fs.writeFileSync('./public/rss/feed.xml', feed.rss2());
   fs.writeFileSync('./public/rss/atom.xml', feed.atom1());
