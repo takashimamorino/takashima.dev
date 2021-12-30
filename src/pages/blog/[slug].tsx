@@ -1,14 +1,9 @@
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next';
-import Link from 'next/link';
-import NextImage from 'next/image';
 import type { Blog } from 'types/blog';
 import { getBlog, getBlogs } from 'utils/blog';
 import { PageLayout } from 'components/PageLayout';
 import { SEO } from 'components/SEO';
 import 'zenn-content-css';
-
-const HOME_ICON_URL =
-  'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/282/house_1f3e0.png';
 
 type Props = {
   blog: Blog;
@@ -23,7 +18,7 @@ const Blog: NextPage<Props> = ({ blog }) => {
     <>
       <SEO title={blog.title} type="article" />
       <PageLayout>
-        <main className="mt-4">
+        <main>
           <h1 className="text-3xl font-medium">{blog.title}</h1>
           <div className="flex mt-1">
             <p className="text-base">{blog.published}</p>
@@ -34,16 +29,6 @@ const Blog: NextPage<Props> = ({ blog }) => {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="mt-2">
-            <Link href="/">
-              <a className="text-base">
-                <div className="flex gap-1">
-                  <NextImage src={HOME_ICON_URL} width={24} height={24} alt="ホームへ" />
-                  ホームへ
-                </div>
-              </a>
-            </Link>
           </div>
           <div className="mt-4 mb-16">
             <div className="znc" dangerouslySetInnerHTML={{ __html: blog.html }} />
