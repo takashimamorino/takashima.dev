@@ -1,6 +1,6 @@
 ---
 title: GraphQL Scalars を使う
-published: 2021-12-31
+published: 2021-12-03
 tags:
   - GraphQL
 ---

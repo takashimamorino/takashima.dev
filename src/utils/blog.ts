@@ -27,7 +27,7 @@ export const getBlogs = async (): Promise<Blog[]> => {
       const { attributes, body } = parseFrontMatter(file.toString());
       invariant(isValidBlogAttributes(attributes), `${filename} has bad meta data!`);
       const d = new Date(`${attributes.published}`);
-      const formatted = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+      const formatted = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
       const html = markdownToHtml(body);
 
       return {
@@ -47,7 +47,7 @@ export const getBlog = async (slug: string): Promise<Blog> => {
   const { attributes, body } = parseFrontMatter(file.toString());
   invariant(isValidBlogAttributes(attributes), `Post ${filepath} is missing attributes`);
   const d = new Date(`${attributes.published}`);
-  const formatted = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+  const formatted = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
   const html = markdownToHtml(body);
 
   return { slug, title: attributes.title, published: formatted, tags: attributes.tags, html };
