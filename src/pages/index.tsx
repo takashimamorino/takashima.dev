@@ -27,24 +27,24 @@ const Home: NextPage<Props> = ({ blogs }) => {
               <h2 className="text-lg font-medium tracking-wide border-b-4 border-black w-max">
                 SNS
               </h2>
-              <div className="grid gap-2 mt-4">
+              <div className="grid gap-3 mt-4">
                 <a
                   href="https://github.com/takashimamorino"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex gap-2 w-max"
+                  className="flex gap-2 w-max items-center"
                 >
                   <GitHubIcon />
-                  <p className="text-sm">@takashimamorino</p>
+                  <p className="text-base">@takashimamorino</p>
                 </a>
                 <a
                   href="https://twitter.com/takashima_katsu"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex gap-2 w-max"
+                  className="flex gap-2 w-max items-center"
                 >
                   <TwitterIcon />
-                  <p className="text-sm">@takashima_katsu</p>
+                  <p className="text-base">@takashima_katsu</p>
                 </a>
               </div>
             </section>

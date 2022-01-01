@@ -9,3 +9,6 @@ node_modules/
 
 # rss
 public/rss/
+
+# ignore blog
+contents/blogs/2021.md
