@@ -17,7 +17,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "tiny-invariant": "1.2.0",
-    "zenn-content-css": "0.1.100",
+    "zenn-content-css": "0.1.101",
     "zenn-markdown-html": "0.1.100"
   },
   "devDependencies": {
