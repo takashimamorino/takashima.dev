@@ -5,6 +5,7 @@ import invariant from 'tiny-invariant';
 import { type Blog } from 'types/blog';
 import { Feed } from 'feed';
 import markdownToHtml from 'zenn-markdown-html';
+import { formatDate } from 'utils/date';
 
 type BlogMarkdownAttributes = {
   title: string;
@@ -26,14 +27,13 @@ export const getBlogs = async (): Promise<Blog[]> => {
       const file = await fs.promises.readFile(path.join(blogsPath, filename));
       const { attributes, body } = parseFrontMatter(file.toString());
       invariant(isValidBlogAttributes(attributes), `${filename} has bad meta data!`);
-      const d = new Date(`${attributes.published}`);
-      const formatted = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+      const date = formatDate(attributes.published);
       const html = markdownToHtml(body);
 
       return {
         slug: filename.replace(/\.md$/, ''),
         title: attributes.title,
-        published: formatted,
+        published: date,
         tags: attributes.tags,
         html,
       };
@@ -46,11 +46,10 @@ export const getBlog = async (slug: string): Promise<Blog> => {
   const file = await fs.promises.readFile(filepath);
   const { attributes, body } = parseFrontMatter(file.toString());
   invariant(isValidBlogAttributes(attributes), `Post ${filepath} is missing attributes`);
-  const d = new Date(`${attributes.published}`);
-  const formatted = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+  const date = formatDate(attributes.published);
   const html = markdownToHtml(body);
 
-  return { slug, title: attributes.title, published: formatted, tags: attributes.tags, html };
+  return { slug, title: attributes.title, published: date, tags: attributes.tags, html };
 };
 
 const BASE_URL = 'https://takashima.dev';
