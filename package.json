@@ -21,7 +21,7 @@
     "zenn-markdown-html": "0.1.106"
   },
   "devDependencies": {
-    "@types/gtag.js": "0.0.8",
+    "@types/gtag.js": "0.0.10",
     "@types/node": "17.0.16",
     "@types/react": "17.0.39",
     "autoprefixer": "10.4.2",
