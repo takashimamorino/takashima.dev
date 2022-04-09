@@ -14,8 +14,8 @@
     "feed": "4.2.2",
     "front-matter": "4.0.2",
     "next": "12.1.4",
-    "react": "18.0.0-rc.3",
-    "react-dom": "18.0.0-rc.3",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
     "tiny-invariant": "1.2.0",
     "zenn-content-css": "0.1.106",
     "zenn-markdown-html": "0.1.106"
