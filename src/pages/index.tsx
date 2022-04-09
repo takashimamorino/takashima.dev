@@ -7,12 +7,15 @@ import type { Blog } from 'types/blog';
 import { PageLayout } from 'components/PageLayout';
 import { SEO } from 'components/SEO';
 import { generateFeedXml } from 'utils/blog';
+import { getArticles } from 'utils/article';
+import { Article } from 'types/article';
 
 type Props = {
   blogs: Blog[];
+  articles: Article[];
 };
 
-const Home: NextPage<Props> = ({ blogs }) => {
+const Home: NextPage<Props> = ({ blogs, articles }) => {
   return (
     <>
       <SEO type="website" />
@@ -50,7 +53,29 @@ const Home: NextPage<Props> = ({ blogs }) => {
             </section>
             <section className="mt-4">
               <h2 className="text-lg font-medium tracking-wide border-b-4 border-black w-max">
-                ブログ
+                Articles
+              </h2>
+              <ul className="mt-3 grid gap-2">
+                {articles.map((article) => (
+                  <li key={article.link}>
+                    <div className="flex">
+                      <p className="text-sm">{article.published}</p>
+                    </div>
+                    <a
+                      className="text-xl"
+                      href={article.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {article.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+            <section className="mt-4">
+              <h2 className="text-lg font-medium tracking-wide border-b-4 border-black w-max">
+                Blog
               </h2>
               <ul className="mt-3 grid gap-2">
                 {blogs.map((blog) => (
@@ -90,7 +115,9 @@ export const getStaticProps: GetStaticProps = async () => {
     return new Date(prev.published) > new Date(next.published) ? -1 : 1;
   });
 
+  const articles = await getArticles();
+
   return {
-    props: { blogs: ascArray },
+    props: { blogs: ascArray, articles },
   };
 };
