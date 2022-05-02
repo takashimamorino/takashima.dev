@@ -1,21 +1,24 @@
-import type { NextPage, GetStaticProps } from 'next';
+import { type NextPage, type GetStaticProps } from 'next';
 import Link from 'next/link';
 import { GitHubIcon } from 'icons/GitHub';
 import { TwitterIcon } from 'icons/Twitter';
 import { getBlogs } from 'utils/blog';
-import type { Blog } from 'types/blog';
+import { type Blog } from 'types/blog';
 import { PageLayout } from 'components/PageLayout';
 import { SEO } from 'components/SEO';
 import { generateFeedXml } from 'utils/blog';
 import { getArticles } from 'utils/article';
-import { Article } from 'types/article';
+import { getRecord } from 'utils/record';
+import { type Article } from 'types/article';
+import { type Record } from 'types/record';
 
 type Props = {
   blogs: Blog[];
   articles: Article[];
+  record: Record[];
 };
 
-const Home: NextPage<Props> = ({ blogs, articles }) => {
+const Home: NextPage<Props> = ({ blogs, articles, record }) => {
   return (
     <>
       <SEO type="website" />
@@ -97,6 +100,20 @@ const Home: NextPage<Props> = ({ blogs, articles }) => {
                 ))}
               </ul>
             </section>
+            <section className="mt-4">
+              <h2 className="text-lg font-medium tracking-wide border-b-4 border-black w-max">
+                Record
+              </h2>
+              <ul className="mt-3 grid gap-2">
+                {record.map((r) => (
+                  <li key={r.link}>
+                    <a className="text-xl" href={r.link} target="_blank" rel="noopener noreferrer">
+                      {r.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
           </article>
         </main>
       </PageLayout>
@@ -114,10 +131,10 @@ export const getStaticProps: GetStaticProps = async () => {
   const ascArray = blogs.sort((prev, next) => {
     return new Date(prev.published) > new Date(next.published) ? -1 : 1;
   });
-
   const articles = await getArticles();
+  const record = await getRecord();
 
   return {
-    props: { blogs: ascArray, articles },
+    props: { blogs: ascArray, articles, record },
   };
 };
