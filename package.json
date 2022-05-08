@@ -19,7 +19,7 @@
     "react-dom": "18.1.0",
     "tiny-invariant": "1.2.0",
     "zenn-content-css": "0.1.110",
-    "zenn-markdown-html": "0.1.109"
+    "zenn-markdown-html": "0.1.110"
   },
   "devDependencies": {
     "@types/gtag.js": "0.0.10",
